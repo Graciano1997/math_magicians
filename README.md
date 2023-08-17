@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>math_magicians setup</h1>
+  <h1>math_magicians Add Components</h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
