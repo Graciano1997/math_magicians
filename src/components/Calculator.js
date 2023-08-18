@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Display from './display';
 import calculate from './logic/calculate';
 
-const Calculator = function () {
+const Calculator = () => {
   const [calc, setCalc] = useState({
     total: null,
     next: null,
