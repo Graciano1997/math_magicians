@@ -1,28 +1,75 @@
-import Display from './Display';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import calculate from './logic/calculate';
 
-const Calculator = () => (
-  <div className="calculatorContainer">
-    <Display />
-    <div className="box"><button type="button">AC</button></div>
-    <div className="box"><button type="button">+/-</button></div>
-    <div className="box"><button type="button">%</button></div>
-    <div className="box"><button className="orange" type="button">÷</button></div>
-    <div className="box"><button type="button">7</button></div>
-    <div className="box "><button type="button">8</button></div>
-    <div className="box"><button type="button">9</button></div>
-    <div className="box"><button className="orange" type="button">x</button></div>
-    <div className="box"><button type="button">4</button></div>
-    <div className="box"><button type="button">5</button></div>
-    <div className="box"><button type="button">6</button></div>
-    <div className="box"><button className="orange" type="button">-</button></div>
-    <div className="box"><button type="button">1</button></div>
-    <div className="box"><button type="button">2</button></div>
-    <div className="box"><button type="button">3</button></div>
-    <div className="box "><button type="button" className="orange">+</button></div>
-    <div className="box zero"><button type="button" className="thin">0</button></div>
-    <div className="box"><button type="button" className="thin">.</button></div>
-    <div className="box"><button type="button" className="orange thin">=</button></div>
-  </div>
-);
+const Calculator = () => {
+  const [calc, setCalc] = useState({
+    total: null,
+    next: null,
+    operation: null,
+  });
 
+  const [result, setResult] = useState('0');
+
+  const handleClick = (e) => {
+    const newObject = {
+      total: null,
+      next: e.target.textContent,
+      operation: null,
+    };
+    setCalc(newObject);
+    const newCalc = calculate(calc, e.target.textContent);
+    setCalc(newCalc);
+    if (newCalc.next && newCalc.total === null) {
+      setResult(newCalc.next);
+    } else if (newCalc.total && newCalc.next === null) {
+      setResult(newCalc.total);
+    } else if (newCalc.total && newCalc.next === null && newCalc.operation === null) {
+      setResult(newCalc.total);
+    } else if (newCalc.total === null && newCalc.next === null && newCalc.operation === null) {
+      setResult('0');
+    } else if (newCalc.total && newCalc.next && newCalc.operation) {
+      setResult(newCalc.next);
+    }
+  };
+
+  const Display = ({ result }) => (
+    <div className="box display">
+      <span className="displayNumber">{result}</span>
+    </div>
+  );
+
+  Display.propTypes = {
+    result: PropTypes.string.isRequired,
+  };
+
+  const Button = (buttonType = 'default', buttonName, boxContainer = 'box') => (
+    <div className={boxContainer}><button type="button" className={buttonType} onClick={handleClick}>{buttonName}</button></div>
+  );
+
+  return (
+    <div className="calculatorContainer">
+      <Display result={(result)} />
+      {Button('default', 'AC')}
+      {Button('default', '+/-')}
+      {Button('default', '%')}
+      {Button('orange', '÷')}
+      {Button('default', '7')}
+      {Button('default', '8')}
+      {Button('default', '9')}
+      {Button('orange', 'x')}
+      {Button('default', '4')}
+      {Button('default', '5')}
+      {Button('default', '6')}
+      {Button('orange', '-')}
+      {Button('default', '1')}
+      {Button('default', '2')}
+      {Button('default', '3')}
+      {Button('orange', '+')}
+      {Button('thin', '0', 'zero')}
+      {Button('thin', '.')}
+      {Button('orange thin', '=')}
+    </div>
+  );
+};
 export default Calculator;
