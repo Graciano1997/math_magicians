@@ -1,4 +1,4 @@
-import Display from './Display';
+import Display from './display';
 
 const Calculator = () => (
   <div className="calculatorContainer">
