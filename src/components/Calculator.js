@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
-import Display from './display';
 import calculate from './logic/calculate';
 
 const Calculator = () => {
@@ -31,6 +31,16 @@ const Calculator = () => {
     } else if (newCalc.total && newCalc.next && newCalc.operation) {
       setResult(newCalc.next);
     }
+  };
+
+  const Display = ({ result }) => (
+    <div className="box display">
+      <span className="displayNumber">{result}</span>
+    </div>
+  );
+
+  Display.propTypes = {
+    result: PropTypes.string.isRequired,
   };
 
   const Button = (buttonType = 'default', buttonName, boxContainer = 'box') => (
