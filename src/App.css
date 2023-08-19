@@ -1,6 +1,6 @@
-  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=PT+Sans:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=PT+Sans:ital@1&display=swap');
 
-  * {
+* {
   font-weight: 400;
   font-size: 20px;
 }
@@ -42,7 +42,7 @@ button {
   transition: all 0.5s 1s;
 }
 
-button:hover{
+button:hover {
   border: 1px solid rgb(97, 94, 94);
   box-shadow: 0.2px 0.2px 4px black;
 }
@@ -67,7 +67,8 @@ button:hover{
   justify-content: center;
 }
 
-.quoteContainer p, blockquote {
+.quoteContainer p,
+blockquote {
   padding-left: 4%;
   padding-right: 4%;
 }
