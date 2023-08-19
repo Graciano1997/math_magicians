@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=PT+Sans:ital@1&display=swap');
+
 * {
   font-weight: 400;
   font-size: 20px;
@@ -37,6 +39,12 @@ button {
   background: #c5b7b771;
   border: transparent;
   cursor: pointer;
+  transition: all 0.5s 1s;
+}
+
+button:hover {
+  border: 1px solid rgb(97, 94, 94);
+  box-shadow: 0.2px 0.2px 4px black;
 }
 
 .thin {
@@ -50,4 +58,32 @@ button {
   background: rgba(100, 97, 97, 0.747);
   color: white;
   padding: 2%;
+}
+
+.quoteContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quoteContainer p,
+blockquote {
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+blockquote {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+li {
+  list-style-type: none;
 }
