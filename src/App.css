@@ -83,3 +83,7 @@ blockquote {
   grid-template-columns: 0.6fr 1fr;
   grid-template-rows: 1fr;
 }
+
+li {
+  list-style-type: none;
+}

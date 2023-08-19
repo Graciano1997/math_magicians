@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const Quotes = () => {
-  const [quote, setQuote] = useState(null);
+  const [quotes, setQuotes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
@@ -12,8 +12,7 @@ const Quotes = () => {
           headers: { 'X-Api-Key': 'CmTKM6B4Q5xkeSVvEc3FObE4vXWoMUq0yCAe0L0D' },
         });
         const quoteArray = await res.json();
-        const random = quoteArray[0];
-        setQuote(random);
+        setQuotes(quoteArray);
         setIsLoading(false);
       } catch (error) {
         setHasError(true);
@@ -21,12 +20,12 @@ const Quotes = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [setQuotes, setIsLoading]);
 
-  if (hasError) {
+  if (hasError || Number(quotes.length === 0)) {
     return (
       <div className="quoteContainer">
-        <p>There is an Error</p>
+        <p>Something went wrong</p>
       </div>
     );
   }
@@ -39,10 +38,9 @@ const Quotes = () => {
     );
   }
   return (
-    <div className="quoteContainer">
-      {quote && (<blockquote>{quote.quote}</blockquote>)}
-      {quote && (<p>{`Author: ${quote.author} `}</p>)}
-    </div>
+    <ul className="quoteContainer">
+      {quotes.map(({ author, quote }) => (<li key={author}>{quote}</li>))}
+    </ul>
   );
 };
 
