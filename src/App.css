@@ -37,6 +37,12 @@ button {
   background: #c5b7b771;
   border: transparent;
   cursor: pointer;
+  transition: all 0.5s 1s;
+}
+
+button:hover{
+  border: 1px solid rgb(97, 94, 94);
+  box-shadow: 0.2px 0.2px 4px black;
 }
 
 .thin {
@@ -50,4 +56,14 @@ button {
   background: rgba(100, 97, 97, 0.747);
   color: white;
   padding: 2%;
+}
+
+.quoteContainer {
+  background: red;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
 }
