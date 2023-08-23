@@ -1,8 +1,8 @@
 .navContainer {
-display: flex;
-gap: 3%;
+  display: flex;
+  gap: 3%;
 }
 
 .second {
-    color: #FFA500;
+  color: #ffa500;
 }

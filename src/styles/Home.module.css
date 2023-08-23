@@ -1,15 +1,15 @@
 .mainContainer {
-display: flex;
-flex-direction: column;
-padding: 2%;
-justify-content: left;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  justify-content: left;
 }
 
 .mainContainer h1 {
-    font-size: 25px;
-    font-weight: 700;
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .content {
-    margin-top: 1%;
+  margin-top: 1%;
 }
