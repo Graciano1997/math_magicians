@@ -1,0 +1,12 @@
+.logoContainer {
+display: flex;
+justify-content: space-between;
+gap: 2%;
+padding-right: 2%;
+}
+
+.logoContainer h1 {
+    font-size: 45px;
+    font-weight: 700;
+    color: #FFA500;
+}

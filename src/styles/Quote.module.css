@@ -1,0 +1,17 @@
+.quoteContainer {
+display: flex;
+margin-top: 15%;
+padding: 2%;
+justify-content: center;
+align-items: center;
+}
+
+.logoContainer h1 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.author {
+    font-weight: 700;
+    color : #ffff;
+}

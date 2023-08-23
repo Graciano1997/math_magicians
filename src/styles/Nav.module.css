@@ -1,0 +1,8 @@
+.navContainer {
+display: flex;
+gap: 3%;
+}
+
+.second {
+    color: #FFA500;
+}

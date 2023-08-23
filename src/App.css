@@ -3,6 +3,8 @@
 * {
   font-weight: 400;
   font-size: 20px;
+  background: #000000;
+  color: #D3D3D3;
 }
 
 .calculatorContainer {
@@ -42,13 +44,19 @@ button {
   transition: all 0.5s 1s;
 }
 
-button:hover {
-  border: 1px solid rgb(97, 94, 94);
-  box-shadow: 0.2px 0.2px 4px black;
-}
-
 .thin {
   padding: 5%;
+  transition: all 0.5s 1s;
+}
+
+button:hover {
+  border: 1px solid rgb(97, 94, 94);
+  box-shadow: 0.2px 0.2px 4px rgb(179, 174, 174);
+}
+
+.thin:hover {
+  border: 1px solid rgb(97, 94, 94);
+  box-shadow: 0.2px 0.2px 4px rgb(179, 174, 174);
 }
 
 .displayNumber {
@@ -70,7 +78,7 @@ button:hover {
 .quoteContainer p,
 blockquote {
   padding-left: 4%;
-  padding-right: 4%;
+  padding-right:6%;
 }
 
 blockquote {

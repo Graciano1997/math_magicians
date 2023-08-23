@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import calculate from './logic/calculate';
+import CalculatorDescription from './CalculatorDescriptio';
+import style from '../styles/Calculator.module.css';
 
 const Calculator = () => {
   const [calc, setCalc] = useState({
@@ -48,28 +50,31 @@ const Calculator = () => {
   );
 
   return (
-    <div className="calculatorContainer">
-      <Display result={(result)} />
-      {Button('default', 'AC')}
-      {Button('default', '+/-')}
-      {Button('default', '%')}
-      {Button('orange', '÷')}
-      {Button('default', '7')}
-      {Button('default', '8')}
-      {Button('default', '9')}
-      {Button('orange', 'x')}
-      {Button('default', '4')}
-      {Button('default', '5')}
-      {Button('default', '6')}
-      {Button('orange', '-')}
-      {Button('default', '1')}
-      {Button('default', '2')}
-      {Button('default', '3')}
-      {Button('orange', '+')}
-      {Button('thin', '0', 'zero')}
-      {Button('thin', '.')}
-      {Button('orange thin', '=')}
-    </div>
+    <section className={style.calculatorContainerArea}>
+      <CalculatorDescription />
+      <div className="calculatorContainer">
+        <Display result={(result)} />
+        {Button('default', 'AC')}
+        {Button('default', '+/-')}
+        {Button('default', '%')}
+        {Button('orange', '÷')}
+        {Button('default', '7')}
+        {Button('default', '8')}
+        {Button('default', '9')}
+        {Button('orange', 'x')}
+        {Button('default', '4')}
+        {Button('default', '5')}
+        {Button('default', '6')}
+        {Button('orange', '-')}
+        {Button('default', '1')}
+        {Button('default', '2')}
+        {Button('default', '3')}
+        {Button('orange', '+')}
+        {Button('thin', '0', 'zero')}
+        {Button('thin', '.')}
+        {Button('orange thin', '=')}
+      </div>
+    </section>
   );
 };
 export default Calculator;
