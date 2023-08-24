@@ -4,12 +4,11 @@ import QuoteItem from './QuoteItem';
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => () => {
     const fetchData = async () => {
-      setIsLoading(true);
       try {
         const res = await fetch('https://api.api-ninjas.com/v1/quotes', {
           headers: { 'X-Api-Key': 'CmTKM6B4Q5xkeSVvEc3FObE4vXWoMUq0yCAe0L0D' },
@@ -18,6 +17,7 @@ const Quotes = () => {
         setQuotes(quoteArray);
         console.log(quoteArray);
       } catch (error) {
+        setIsLoading(false);
         setHasError(true);
       }
       setIsLoading(false);
@@ -44,16 +44,21 @@ const Quotes = () => {
       </>
     );
   }
+  if (isLoading === false && hasError === false) {
+    return (
+      <>
+        <ul className={style.quoteContainer}>
+          {quotes.map(({ author, quote }) => (
+            <li key={author}>
+              <QuoteItem quote={quote} author={author} />
+            </li>
+          ))}
+        </ul>
+      </>
+    );
+  }
   return (
-    <>
-      <ul className={style.quoteContainer}>
-        {quotes.map(({ author, quote }) => (
-          <li key={author}>
-            <QuoteItem quote={quote} author={author} />
-          </li>
-        ))}
-      </ul>
-    </>
+    <><p>there is an issue!</p></>
   );
 };
 
