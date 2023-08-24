@@ -3,7 +3,7 @@ import style from '../styles/Quote.module.css';
 import QuoteItem from './QuoteItem';
 
 const Quotes = () => {
-  const [quotes, setQuotes] = useState([]);
+  const [quotes, setQuotes] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
@@ -14,8 +14,8 @@ const Quotes = () => {
           headers: { 'X-Api-Key': 'CmTKM6B4Q5xkeSVvEc3FObE4vXWoMUq0yCAe0L0D' },
         });
         const quoteArray = await res.json();
-        setQuotes(quoteArray);
-        console.log(quoteArray);
+        setQuotes(quoteArray[0]);
+        console.log(quoteArray[0]);
       } catch (error) {
         setIsLoading(false);
         setHasError(true);
@@ -48,11 +48,9 @@ const Quotes = () => {
     return (
       <>
         <ul className={style.quoteContainer}>
-          {quotes.map(({ author, quote }) => (
-            <li key={author}>
-              <QuoteItem quote={quote} author={author} />
-            </li>
-          ))}
+          <li key={quotes.author}>
+            <QuoteItem quote={quotes.quote} author={quotes.author} />
+          </li>
         </ul>
       </>
     );
