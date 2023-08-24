@@ -9,13 +9,12 @@ function App() {
   return (
     <>
       <Header />
-      <div className="">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/calculator" element={<Calculator />} />
-          <Route path="/quotes" element={<Quotes />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="calculator" element={<Calculator />} />
+        <Route path="quotes" element={<Quotes />} />
+        <Route path="*" element={<div>If page not found it goes here</div>} />
+      </Routes>
     </>
   );
 }
