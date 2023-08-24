@@ -4,7 +4,7 @@ import style from '../styles/Quote.module.css';
 const QuoteItem = ({ quotes }) => (
   <div>
     <p>{quotes.quote}</p>
-    <p className={style.author}>{quotes.author}</p>
+    {/* <p className={style.author}>{quotes.author}</p> */}
   </div>
 );
 
