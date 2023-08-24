@@ -16,6 +16,10 @@ const Quotes = () => {
         const quoteArray = await res.json();
         setQuotes(quoteArray[0]);
         console.log(quoteArray[0]);
+        if (res.status === 200) {
+          setIsLoading(false);
+          setHasError(false);
+        }
       } catch (error) {
         setIsLoading(false);
         setHasError(true);
