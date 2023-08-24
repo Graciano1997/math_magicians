@@ -26,27 +26,33 @@ const Quotes = () => {
   // || Number(quotes.length === 0
   if (hasError) {
     return (
-      <div className={style.quoteContainer}>
-        <p>Connecting ...</p>
-      </div>
+      <>
+        <div className={style.quoteContainer}>
+          <p>Connecting ...</p>
+        </div>
+      </>
     );
   }
 
   if (isLoading) {
     return (
-      <div className={style.quoteContainer}>
-        <p>Loading ...</p>
-      </div>
+      <>
+        <div className={style.quoteContainer}>
+          <p>Loading ...</p>
+        </div>
+      </>
     );
   }
   return (
-    <ul className={style.quoteContainer}>
-      {quotes.map(({ author, quote }) => (
-        <li key={author}>
-          <QuoteItem quote={quote} author={author} />
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul className={style.quoteContainer}>
+        {quotes.map(({ author, quote }) => (
+          <li key={author}>
+            <QuoteItem quote={quote} author={author} />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
