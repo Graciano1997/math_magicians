@@ -24,7 +24,7 @@ const Quotes = () => {
     fetchData();
   }, []);
   // || Number(quotes.length === 0
-  if (hasError)) {
+  if (hasError) {
     return (
       <div className={style.quoteContainer}>
         <p>Connecting ...</p>
