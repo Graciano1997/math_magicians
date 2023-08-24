@@ -3,7 +3,7 @@ import style from '../styles/Quote.module.css';
 import QuoteItem from './QuoteItem';
 
 const Quotes = () => {
-  const [quotes, setQuotes] = useState(null);
+  const [quotes, setQuotes] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -15,9 +15,7 @@ const Quotes = () => {
           headers: { 'X-Api-Key': 'CmTKM6B4Q5xkeSVvEc3FObE4vXWoMUq0yCAe0L0D' },
         });
         const quoteArray = await res.json();
-        if (res.status === 200) {
-          setQuotes(quoteArray[0]);
-        }
+        setQuotes(quoteArray[0]);
       } catch (error) {
         setIsLoading(false);
         setHasError(true);
