@@ -1,0 +1,19 @@
+.calculatorContainerArea {
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns: 50fr 50fr;
+  grid-template-rows: auto;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.description h1 {
+  margin-top: 0;
+  padding-left: 4%;
+  font-size: 25px;
+  font-weight: 700;
+}

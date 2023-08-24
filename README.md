@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>math_magicians fetch data from API</h1>
+  <h1>math_magicians Full webSite</h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
