@@ -23,8 +23,8 @@ const Quotes = () => {
     };
     fetchData();
   }, []);
-
-  if (hasError || Number(quotes.length === 0)) {
+  // || Number(quotes.length === 0
+  if (hasError)) {
     return (
       <div className={style.quoteContainer}>
         <p>Connecting ...</p>
