@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import style from '../styles/Quote.module.css';
-import QuoteItem from './QuoteItem';
 
 const Quotes = () => {
   const [quotes, setQuotes] = useState(null);
@@ -22,10 +21,6 @@ const Quotes = () => {
     };
     fetchData();
   }, []);
-  console.log(quotes);
-  console.log(isLoading);
-  console.log(hasError);
-
   return (
     <>
       {isLoading && (
@@ -43,7 +38,10 @@ const Quotes = () => {
       {quotes && (
         <ul className={style.quoteContainer}>
           <li key={quotes.author}>
-            <QuoteItem quotes={quotes} />
+            <div>
+              <p>{quotes.quote}</p>
+              <p className={style.author}>{quotes.author}</p>
+            </div>
           </li>
         </ul>
       )}
