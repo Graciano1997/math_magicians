@@ -22,7 +22,7 @@ const Quotes = () => {
       setIsLoading(false);
     };
     fetchData();
-  }, [setQuotes, setIsLoading]);
+  }, []);
 
   if (hasError || Number(quotes.length === 0)) {
     return (
