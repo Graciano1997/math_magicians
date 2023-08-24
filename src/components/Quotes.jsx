@@ -17,7 +17,6 @@ const Quotes = () => {
         const quoteArray = await res.json();
         if (res.status === 200) {
           setQuotes(quoteArray[0]);
-          console.log(quoteArray[0]);
         }
       } catch (error) {
         setIsLoading(false);
@@ -27,6 +26,9 @@ const Quotes = () => {
     };
     fetchData();
   }, []);
+  console.log(quotes);
+  console.log(isLoading);
+  console.log(hasError);
 
   return (
     <>
@@ -45,7 +47,7 @@ const Quotes = () => {
       {quotes && (
       <ul className={style.quoteContainer}>
         <li key={quotes.author}>
-          <QuoteItem quote={quotes.quote} author={quotes.author} />
+          <QuoteItem quotes={quotes} />
         </li>
       </ul>
       )}
