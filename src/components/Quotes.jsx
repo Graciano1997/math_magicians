@@ -6,7 +6,7 @@ const Quotes = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  useEffect(() => () => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch('https://api.api-ninjas.com/v1/quotes', {
@@ -21,6 +21,7 @@ const Quotes = () => {
     };
     fetchData();
   }, []);
+
   return (
     <>
       {isLoading && (
@@ -45,7 +46,6 @@ const Quotes = () => {
           </li>
         </ul>
       )}
-
     </>
   );
 };
