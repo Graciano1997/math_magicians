@@ -16,6 +16,7 @@ const Quotes = () => {
         });
         const quoteArray = await res.json();
         setQuotes(quoteArray);
+        console.log(quoteArray);
       } catch (error) {
         setHasError(true);
       }
